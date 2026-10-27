@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#07070d">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23ec4899'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='43' font-size='30' font-weight='700' text-anchor='middle' fill='white' font-family='Segoe UI,Arial,sans-serif'>ИИ</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ИИ-студия Михаила — сайты, боты и ИИ-помощники">
+<meta property="og:description" content="Более 300 проектов и более 100 клиентов. Сайты, чат-боты, ИИ-помощники, визитки и многое другое.">
+<title>ИИ-студия Михаила — сайты, боты и ИИ-помощники</title>
+<meta name="description" content="Сайты, чат-боты и ИИ-помощники, которые приводят клиентов. Более 300 проектов и более 100 клиентов.">
+<style>
+  :root {
+    --bg: #07070d; --text: #f4f4fb; --muted: #b6b6cf;
+    --c1: #7c3aed; --c2: #ec4899; --c3: #22d3ee;
+    --glass: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+    --line: rgba(255,255,255,.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--c3); outline-offset: 3px; }
+  section[hidden], figure[hidden] { display: none; }
+
+  .glow { position: fixed; border-radius: 50%; filter: blur(110px); pointer-events: none; z-index: 0; animation: float 16s ease-in-out infinite; }
+  .g1 { width: 520px; height: 520px; background: var(--c1); top: -160px; left: -140px; opacity: .45; }
+  .g2 { width: 460px; height: 460px; background: var(--c2); bottom: -160px; right: -120px; opacity: .35; animation-delay: -6s; }
+  .g3 { width: 300px; height: 300px; background: var(--c3); top: 40%; left: 60%; opacity: .18; animation-delay: -10s; }
+  @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,30px) scale(1.12); } }
+
+  /* Цветной текст без переливания: спокойнее для глаз */
+  .grad { background: linear-gradient(110deg, var(--c3), var(--c1) 55%, var(--c2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px max(18px, calc((100% - 1040px) / 2)); background: rgba(7,7,13,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo { font-weight: 800; letter-spacing: -.3px; }
+  #hdrAv:empty { display: none; }
+  #hdrAv { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 2px solid transparent; background: linear-gradient(#07070d, #07070d) padding-box, linear-gradient(135deg, var(--c3), var(--c1), var(--c2)) border-box; }
+  #hdrAv .ph { width: 100%; height: 100%; background-repeat: no-repeat; background-size: 170%; background-position: 60% 0; }
+  nav { display: flex; gap: 6px; align-items: center; }
+  nav a { text-decoration: none; color: var(--muted); font-size: 15px; padding: 8px 12px; border-radius: 10px; transition: color .2s, background .2s; }
+  nav a:hover { color: #fff; background: rgba(255,255,255,.07); }
+  nav a.nav-cta { color: #fff; background: linear-gradient(110deg, var(--c1), var(--c2)); font-weight: 600; }
+
+  main { position: relative; z-index: 1; }
+  section { padding: 76px 20px; max-width: 1040px; margin: 0 auto; }
+  h2 { text-align: center; font-size: clamp(28px, 5vw, 42px); font-weight: 800; letter-spacing: -.5px; line-height: 1.15; }
+  .sub { text-align: center; color: var(--muted); margin: 14px auto 0; max-width: 580px; }
+
+  /* Первый экран */
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 100px; }
+  .hero-text { display: flex; flex-direction: column; align-items: center; }
+  .badge { display: inline-block; padding: 7px 16px; border-radius: 999px; font-size: 13px; color: #e2e2f3; background: rgba(255,255,255,.07); border: 1px solid var(--line); margin-bottom: 26px; }
+  h1 { font-size: clamp(34px, 7vw, 68px); line-height: 1.08; font-weight: 900; letter-spacing: -1.2px; filter: drop-shadow(0 0 28px rgba(168,85,247,.45)); max-width: 900px; }
+  .lead { margin: 24px auto 0; max-width: 600px; font-size: clamp(16px, 2.6vw, 20px); color: var(--muted); }
+  .hero-actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+  .hero.has-photo { max-width: 1160px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; text-align: left; }
+  .hero.has-photo .hero-text { align-items: flex-start; }
+  .hero.has-photo h1 { font-size: clamp(32px, 4.6vw, 58px); }
+  .hero.has-photo .lead { margin-left: 0; }
+  .hero.has-photo .hero-actions, .hero.has-photo .stats { justify-content: flex-start; }
+
+  .portrait { position: relative; isolation: isolate; margin: 0; justify-self: center; width: 100%; max-width: 440px; }
+  .portrait::before { content: ""; position: absolute; inset: -34px; z-index: -1; filter: blur(34px); background: radial-gradient(circle at 25% 15%, rgba(124,58,237,.65), transparent 60%), radial-gradient(circle at 85% 90%, rgba(236,72,153,.5), transparent 55%); }
+  .pframe { padding: 4px; border-radius: 38px; background: linear-gradient(135deg, var(--c3), var(--c1), var(--c2)); box-shadow: 0 30px 80px rgba(124,58,237,.45); }
+  .pimg { aspect-ratio: 4 / 5; border-radius: 34px; background-color: #12121f; background-size: cover; background-position: 62% 8%; }
+  .pcap { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 14px 18px; border-radius: 18px; display: flex; flex-direction: column; background: rgba(10,10,20,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line); }
+  .pcap b { font-size: 18px; }
+  .pcap span { color: var(--muted); font-size: 14px; }
+  .pbadge { position: absolute; top: 24px; right: -16px; padding: 10px 16px; border-radius: 16px; font-size: 14px; line-height: 1.3; background: rgba(10,10,20,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line); animation: bob 5s ease-in-out infinite; }
+  .pbadge b { display: block; font-size: 24px; }
+  @keyframes bob { 50% { transform: translateY(-8px); } }
+
+  /* Кнопки. Переливается и пульсирует только главная (класс hot) */
+  .btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 30px; font-size: 17px; font-weight: 700; color: #fff; text-decoration: none; border: 0; border-radius: 16px; background: linear-gradient(110deg, var(--c1), var(--c2)); transition: transform .25s, box-shadow .25s; box-shadow: 0 10px 30px rgba(124,58,237,.4); }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 40px rgba(236,72,153,.5); }
+  .btn:active { transform: scale(.97); }
+  .btn.hot { background: linear-gradient(110deg, var(--c1), var(--c2), var(--c1)); background-size: 200% 100%; animation: flow 4s linear infinite; }
+  .btn.hot::after { content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent); transform: skewX(-20deg); animation: sweep 3.4s ease-in-out infinite; }
+  .btn.ghost { background: rgba(255,255,255,.07); border: 1px solid var(--line); box-shadow: none; }
+  .btn.ghost:hover { border-color: var(--c3); box-shadow: none; }
+  @keyframes flow { to { background-position: 200% 0; } }
+  @keyframes sweep { 0% { left: -80%; } 60%,100% { left: 140%; } }
+
+  .stats { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: center; color: var(--muted); font-size: 15px; }
+  .stats b { display: block; font-size: 28px; color: #fff; }
+
+  /* Каталог: карточки одной высоты, цена внизу */
+  .grid { margin-top: 46px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .grid .card { width: calc((100% - 60px) / 4); display: flex; flex-direction: column; }
+  .grid .card.extra { display: none; }
+  .grid.all .card.extra { display: flex; animation: pop .35s ease-out; }
+  @media (max-width: 960px) { .grid .card { width: calc((100% - 20px) / 2); } }
+  @media (max-width: 560px) { .grid .card { width: 100%; } }
+  .card { text-align: left; padding: 26px 22px; border-radius: 22px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
+  .card:hover { transform: translateY(-8px); border-color: rgba(168,85,247,.6); box-shadow: 0 18px 50px rgba(124,58,237,.35); }
+  .emoji { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-size: 27px; margin-bottom: 16px; background: linear-gradient(135deg, var(--c1), var(--c2)); box-shadow: 0 8px 24px rgba(236,72,153,.35); transition: transform .35s; }
+  .card:hover .emoji { transform: rotate(-8deg) scale(1.1); }
+  .card h3 { font-size: 20px; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 15.5px; }
+  .cprice { display: block; margin-top: auto; padding-top: 16px; font-weight: 800; font-size: 19px; }
+  .card .more { display: block; margin-top: 6px; color: var(--c3); font-size: 14.5px; font-weight: 600; }
+  .morewrap { text-align: center; margin-top: 28px; }
+
+  /* Окно услуги */
+  dialog { margin: auto; max-width: 480px; width: calc(100% - 32px); padding: 32px 28px; border-radius: 26px; color: var(--text); background: #12121f; border: 1px solid rgba(168,85,247,.5); box-shadow: 0 30px 90px rgba(0,0,0,.7), 0 0 60px rgba(124,58,237,.3); }
+  dialog::backdrop { background: rgba(4,4,10,.72); backdrop-filter: blur(4px); }
+  dialog[open] { animation: pop .3s cubic-bezier(.2,.8,.2,1); }
+  @keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.96); } }
+  .x { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.06); font-size: 18px; }
+  dialog h3 { font-size: 26px; margin: 8px 0 6px; }
+  dialog ul { margin: 16px 0 6px 20px; color: #dcdcf0; }
+  dialog li { margin: 5px 0; }
+  .price { margin: 16px 0 22px; color: var(--muted); font-size: 15px; }
+  .price b { color: #fff; font-size: 22px; }
+
+  /* Тест */
+  .panel { margin: 46px auto 0; max-width: 640px; border-radius: 26px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); overflow: hidden; }
+  .quiz { padding: 30px 26px; }
+  .bar { height: 6px; border-radius: 6px; background: rgba(255,255,255,.1); overflow: hidden; margin-bottom: 22px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--c3), var(--c2)); transition: width .4s; }
+  .quiz h3 { font-size: 22px; margin-bottom: 18px; }
+  .opts { display: grid; gap: 10px; }
+  .opt { text-align: left; padding: 15px 18px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1px solid var(--line); transition: transform .2s, border-color .2s, background .2s; }
+  .opt:hover { transform: translateX(6px); border-color: var(--c3); background: rgba(34,211,238,.08); }
+  .result { display: grid; gap: 14px; margin-top: 8px; }
+  .rec { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid var(--line); }
+  .rec .emoji { margin: 0; flex: none; }
+  .rec .txt { flex: 1; } .rec b { display: block; }
+  .rec span { color: var(--muted); font-size: 15px; display: block; }
+  .rec em { font-style: normal; color: #fff; font-weight: 700; font-size: 15px; }
+  .rec button { padding: 9px 16px; border-radius: 12px; border: 0; font-weight: 700; background: linear-gradient(110deg, var(--c1), var(--c2)); }
+  .linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; margin-top: 8px; }
+
+  /* Как это работает */
+  .steps { margin-top: 46px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; }
+  .step { padding: 28px 24px; border-radius: 22px; background: var(--glass); border: 1px solid var(--line); }
+  .step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; margin-bottom: 14px; font-weight: 800; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .step h3 { margin-bottom: 6px; } .step p { color: var(--muted); font-size: 15.5px; }
+
+  /* Примеры работ и отзывы (показываются, когда есть данные) */
+  .cards3 { margin-top: 46px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .work, .review { padding: 24px; border-radius: 22px; background: var(--glass); border: 1px solid var(--line); }
+  .work img { width: 100%; border-radius: 14px; margin-bottom: 14px; display: block; }
+  .work h3 { margin-bottom: 6px; } .work p, .review p { color: var(--muted); font-size: 15.5px; }
+  .work a { color: var(--c3); font-weight: 600; font-size: 15px; display: inline-block; margin-top: 10px; }
+  .review b { display: block; margin-top: 12px; }
+
+  /* Обо мне */
+  .about { padding: 54px 34px; border-radius: 30px; text-align: center; background: linear-gradient(135deg, rgba(124,58,237,.24), rgba(236,72,153,.17)); border: 1px solid var(--line); }
+  .about .badge { margin-bottom: 18px; }
+  .about h2 { margin-bottom: 22px; }
+  .about p { max-width: 680px; margin: 0 auto 16px; color: #e4e4f5; font-size: clamp(16px, 2.4vw, 19px); }
+  .pts { margin: 34px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
+  .pts:empty { display: none; }
+  .pt { padding: 22px 20px; border-radius: 20px; background: rgba(7,7,13,.45); border: 1px solid var(--line); }
+  .pt .ic { font-size: 28px; }
+  .pt h3 { margin: 8px 0 6px; font-size: 18px; }
+  .pt p { margin: 0; font-size: 15px; color: var(--muted); }
+  .about .closing { font-weight: 700; color: #fff; font-size: clamp(18px, 3vw, 24px); margin: 28px auto 26px; }
+
+  /* Вопросы и ответы */
+  .faq { max-width: 760px; margin: 40px auto 0; display: grid; gap: 12px; }
+  details { border-radius: 18px; background: var(--glass); border: 1px solid var(--line); padding: 0 22px; transition: border-color .2s; }
+  details[open] { border-color: rgba(168,85,247,.55); }
+  summary { cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--c3); font-size: 24px; line-height: 1; transition: transform .25s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { color: var(--muted); padding-bottom: 18px; font-size: 16px; }
+
+  /* Контакты */
+  .contact { text-align: center; padding-bottom: 90px; }
+  .socials { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .btn.tg { background: linear-gradient(110deg, #229ED9, #1b7fb3); }
+  .btn.wa { background: linear-gradient(110deg, #25D366, #128c7e); }
+  .btn.ig { background: linear-gradient(110deg, #f58529, #dd2a7b, #8134af); }
+  .btn.tg, .btn.wa, .btn.ig { box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  .otherpages { margin-top: 26px; color: var(--muted); font-size: 15px; }
+  .otherpages a, .flink { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); transition: color .2s, border-color .2s; }
+  .otherpages a:hover, .flink:hover { color: var(--c3); border-color: var(--c3); }
+  footer { position: relative; z-index: 1; text-align: center; padding: 26px 20px 40px; color: #9494b0; font-size: 14px; }
+
+  /* Кнопка «Написать» на телефоне */
+  #floatCta { position: fixed; left: 16px; right: 16px; bottom: 14px; z-index: 30; display: none; justify-content: center; padding: 15px; text-decoration: none; font-weight: 700; border-radius: 16px; background: linear-gradient(110deg, #229ED9, #1b7fb3); box-shadow: 0 10px 34px rgba(0,0,0,.55); transform: translateY(90px); transition: transform .35s; }
+  #floatCta.on { transform: none; }
+
+  #toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; z-index: 50; padding: 13px 22px; border-radius: 14px; background: #1c1c2e; border: 1px solid rgba(168,85,247,.5); transition: opacity .3s, transform .3s; max-width: calc(100% - 32px); text-align: center; }
+  #toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s, transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .hero.has-photo { grid-template-columns: 1fr; gap: 34px; text-align: center; min-height: 0; padding-top: 96px; }
+    .hero.has-photo .hero-text { align-items: center; }
+    .hero.has-photo .lead { margin-left: auto; }
+    .hero.has-photo .hero-actions, .hero.has-photo .stats { justify-content: center; }
+    .portrait { order: -1; max-width: 270px; }
+    .pbadge { right: -8px; }
+  }
+  @media (max-width: 760px) {
+    nav a:not(.nav-cta) { display: none; }
+    section { padding: 58px 18px; }
+    .steps, .pts { grid-template-columns: 1fr; }
+    .about { padding: 40px 20px; }
+    .btn { width: 100%; }
+    .rec { flex-wrap: wrap; }
+    #floatCta { display: flex; }
+    footer { padding-bottom: 90px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<noscript><p style="position:relative;z-index:5;padding:90px 20px 0;text-align:center;color:#fff">Для работы сайта нужен JavaScript. А пока напишите мне: <a href="https://t.me/ArsMiki" style="color:#22d3ee">Telegram</a></p></noscript>
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+
+<header>
+  <a class="brand" href="#top"><span id="hdrAv"></span><span class="logo grad">ИИ-студия Михаила</span></a>
+  <nav aria-label="Меню">
+    <a href="#services">Услуги</a>
+    <a href="#quiz">Что подойдёт</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#about" id="navAbout">Обо мне</a>
+    <a href="#contact" class="nav-cta">Написать</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <span class="badge">Сайты · Боты · ИИ-помощники</span>
+      <h1 class="grad">Сайты, боты и ИИ&#8209;помощники, которые приводят клиентов</h1>
+      <p class="lead">Вы рассказываете идею — я создаю всё под ключ. Более 300 проектов и более 100 клиентов уже получили результат.</p>
+      <div class="hero-actions">
+        <a class="btn hot" id="heroTg" href="#" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn ghost" href="#services">Выбрать услугу</a>
+      </div>
+      <div class="stats">
+        <div><b>300+</b>проектов выполнено</div>
+        <div><b>100+</b>клиентов</div>
+        <div><b>Лично</b>без менеджеров</div>
+      </div>
+    </div>
+    <figure class="portrait" id="portrait" hidden>
+      <div class="pframe"><div class="pimg" id="pimg" role="img" aria-label="Михаил Арсентьев"></div></div>
+      <div class="pbadge"><b>300+</b>проектов</div>
+      <figcaption class="pcap"><b>Михаил Арсентьев</b><span>ИИ-студия Михаила</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="services">
+    <h2 class="reveal">С чего <span class="grad">начнём</span>?</h2>
+    <p class="sub reveal">Выберите, что нужно вам. Стартовая цена сразу на карточке, подробности — по нажатию.</p>
+    <div class="grid" id="grid"></div>
+    <div class="morewrap"><button class="btn ghost" id="moreBtn" type="button"></button></div>
+  </section>
+
+  <section id="works" hidden>
+    <h2 class="reveal">Примеры <span class="grad">работ</span></h2>
+    <div class="cards3" id="worksList"></div>
+  </section>
+
+  <section id="reviews" hidden>
+    <h2 class="reveal">Что говорят <span class="grad">клиенты</span></h2>
+    <div class="cards3" id="reviewsList"></div>
+  </section>
+
+  <section id="about" hidden>
+    <div class="about reveal">
+      <span class="badge" id="aboutEyebrow"></span>
+      <h2 id="aboutTitle"></h2>
+      <div id="aboutText"></div>
+      <div class="pts" id="aboutPts"></div>
+      <p class="closing" id="aboutClosing"></p>
+      <a class="btn hot" id="aboutCta" href="#" target="_blank" rel="noopener">Давайте обсудим</a>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2 class="reveal">Не знаете, что <span class="grad">выбрать</span>?</h2>
+    <p class="sub reveal">Три коротких вопроса — и я подскажу, с чего начать.</p>
+    <div class="panel quiz reveal" id="quizBox"></div>
+  </section>
+
+  <section id="how">
+    <h2 class="reveal">Как это <span class="grad">работает</span></h2>
+    <div class="steps">
+      <div class="step reveal"><h3>Расскажите идею</h3><p>Напишите мне в Telegram, Instagram или WhatsApp. Достаточно примерной идеи.</p></div>
+      <div class="step reveal"><h3>Я создаю с помощью ИИ</h3><p>Вы быстро увидите первую версию и скажете, что изменить.</p></div>
+      <div class="step reveal"><h3>Вы запускаете</h3><p>Вы получаете готовый результат, который сразу можно использовать и привлекать клиентов.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 class="reveal">Частые <span class="grad">вопросы</span></h2>
+    <div class="faq reveal" id="faqList"></div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="reveal">Давайте создадим <span class="grad">ваш</span> проект</h2>
+    <p class="sub reveal">Пишите там, где вам удобнее. Отвечаю лично.</p>
+    <div class="socials reveal">
+      <a class="btn tg" id="lnkTg" href="#" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn wa" id="lnkWa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ig" id="lnkIg" href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="otherpages reveal">Ещё обо мне: <a href="https://am89538880507miki88.github.io/vizitka/">моя визитка</a> · <a href="https://am89538880507miki88.github.io/landing/">страница услуг</a></p>
+  </section>
+</main>
+
+<footer>© Арсентьев Михаил · Создано с помощью ИИ · <a class="flink" href="https://am89538880507miki88.github.io/vizitka/">Визитка</a> · <a class="flink" href="https://am89538880507miki88.github.io/landing/">Страница услуг</a></footer>
+
+<a id="floatCta" href="#" target="_blank" rel="noopener">Написать в Telegram</a>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <button class="x" id="dlgClose" aria-label="Закрыть">✕</button>
+  <div class="emoji" id="dlgIcon"></div>
+  <h3 id="dlgTitle"></h3>
+  <p id="dlgText" style="color:var(--muted)"></p>
+  <ul id="dlgList"></ul>
+  <p class="price" id="dlgPrice"></p>
+  <button class="btn hot" id="dlgGo" style="width:100%">Обсудить в Telegram</button>
+</dialog>
+
+<div id="toast" role="status"></div>
+
+<script>
+/* ---------- Настройки: контакты, тексты, цены меняются здесь ---------- */
+const TELEGRAM  = "ArsMiki";
+const INSTAGRAM = "mr.mikki888";
+const WHATSAPP  = "79538880507"; // цифры с кодом страны. Пусто = кнопка покажет «скоро»
+const PHOTO     = "img/photo.jpg"; // ваше фото; если файла нет, сайт показывается без него
+
+/* Блок «Обо мне». Если paragraphs пустой, весь раздел скрывается. points можно оставить пустым. */
+const ABOUT = {
+  eyebrow: "Обо мне",
+  title: "Лично отвечаю за результат вашего проекта",
+  paragraphs: [
+    "Моя студия работает не первый год: более 300 проектов и более 100 клиентов. Каждый получает именно тот результат, за которым пришёл.",
+    "Многие клиенты становятся моими партнёрами и возвращаются с новыми идеями — потому что я отношусь к их делу как к своему."
+  ],
+  points: [],
+  closing: "Готовы работать с тем, кто по-настоящему на вашей стороне?"
+};
+
+/* Примеры работ: { title, text, link, image }. Пусто = раздел скрыт. */
+const WORKS = [];
+/* Отзывы: { name, text }. Пусто = раздел скрыт. */
+const REVIEWS = [];
+
+/* Услуги. main: true — показываются сразу, остальные под кнопкой «Ещё услуги».
+   from — стартовая цена числом (временная, замените на свою). */
+const SERVICES = [
+  { id: "websites",  main: true,  icon: "🌐", title: "Сайты",             short: "Сайт, который приводит заявки: одностраничный сайт, интернет-магазин, портфолио или сайт для события.",
+    list: ["Сайт из одной страницы, который продаёт", "Интернет-магазин", "Портфолио или личный сайт", "Сайт-приглашение на свадьбу или праздник"], from: 9000, why: "Даёт вам постоянный источник заявок." },
+  { id: "bots",      main: true,  icon: "🤖", title: "Чат-боты",          short: "Бот в Telegram и WhatsApp принимает записи и заказы и отвечает клиентам, пока вы заняты.",
+    list: ["Принимает записи и заказы", "Отвечает на частые вопросы круглосуточно", "Присылает вам каждую новую заявку", "Работает в Telegram или WhatsApp"], from: 7000, why: "Не даёт потерять ни одного клиента." },
+  { id: "assistants",main: true,  icon: "🧠", title: "ИИ-помощники",      short: "Умный помощник на вашем сайте или для команды: отвечает, подсказывает, экономит время.",
+    list: ["Консультант на сайте, который знает ваши товары", "Помощник для сотрудников", "Личный помощник для ежедневных задач"], from: 8000, why: "Освобождает ваше время от рутины." },
+  { id: "cards",     main: true,  icon: "🪪", title: "Визитки",           short: "Электронная визитка: контакты и услуги открываются по одной ссылке или картинке для телефона.",
+    list: ["Ваши ссылки, контакты и услуги в одном месте", "Отправляйте ссылкой или показывайте картинку для телефона (QR-код)", "Красивый современный дизайн с анимацией"], from: 2500, why: "Быстрый и недорогой способ выглядеть профессионально." },
+  { id: "apps",      main: false, icon: "📱", title: "Приложения",        short: "Простое приложение для записи, заказов или учёта — и даже мини-игра для вашего бренда.",
+    list: ["Приложение для записи или заказов", "Учёт дел, привычек или расчётов", "Мини-игра для вашего бренда"], from: 13000, why: "Своё приложение под вашу задачу." },
+  { id: "content",   main: false, icon: "🎨", title: "Тексты и картинки", short: "Посты, описания товаров, логотипы и баннеры — быстро и в одном стиле.",
+    list: ["Посты для соцсетей", "Логотип и баннеры", "Фото и описания товаров"], from: 1500, why: "Готовый контент без долгих поисков." },
+  { id: "video",     main: false, icon: "🎬", title: "Видео и звук",      short: "Рекламные ролики, озвучка и мультфильмы, которые запоминаются.",
+    list: ["Короткие рекламные ролики", "Озвучка и музыкальные заставки", "Анимационные истории и мультфильмы"], from: 5500, why: "Яркий ролик привлекает внимание лучше текста." },
+  { id: "docs",      main: false, icon: "📄", title: "Документы",         short: "Коммерческие предложения, презентации и прайс-листы без возни.",
+    list: ["Коммерческие предложения", "Презентации", "Прайс-листы и шаблоны"], from: 2000, why: "Аккуратные документы за короткое время." },
+  { id: "automation",main: false, icon: "⚙️", title: "Автоматизация",     short: "Заявки сами приходят в Telegram или таблицу, клиентам сами уходят напоминания.",
+    list: ["Заявки с сайта в Telegram или таблицу", "Автоматические напоминания клиентам", "Ответы на отзывы"], from: 4500, why: "Рутина делается без вашего участия." },
+  { id: "learning",  main: false, icon: "🎓", title: "Курсы и обучение",  short: "Онлайн-курс, тесты и ИИ-репетитор для ваших учеников.",
+    list: ["Страницы курса с уроками", "Проверочные тесты", "ИИ-репетитор, который отвечает ученикам"], from: 11000, why: "Ваши знания, оформленные в удобный курс." }
+];
+const money = n => "от " + n.toLocaleString("ru-RU") + " ₽";
+const prices = SERVICES.map(s => s.from);
+
+/* Вопросы и ответы */
+const FAQ = [
+  ["Сколько это стоит?", "Стартовые цены на карточках — от " + Math.min(...prices).toLocaleString("ru-RU") + " ₽ до " + Math.max(...prices).toLocaleString("ru-RU") + " ₽, в зависимости от услуги. Итоговая сумма зависит от вашей задачи; я называю её после короткого обсуждения."],
+  ["Как быстро всё будет готово?", "Это зависит от задачи: небольшие проекты делаются быстро, большие занимают больше времени. Первую версию вы увидите раньше, чем всё будет готово, и сможете сказать, что изменить."],
+  ["Нужно ли мне разбираться в технологиях?", "Нет. Расскажите идею обычными словами, а всё остальное я объясню простым языком и сделаю сам."],
+  ["Как проходит работа?", "Вы пишете мне в Telegram, Instagram или WhatsApp и рассказываете идею. Я создаю первую версию с помощью ИИ, вы говорите, что поменять, и вы получаете готовый результат."],
+  ["Как оплатить?", "Способ и условия оплаты мы согласуем до начала работы."],
+  ["А если у меня только смутная идея?", "Этого достаточно. Вместе уточним, что вам нужно, и я предложу подходящий вариант. Можно начать с короткого теста на этой странице."]
+];
+
+/* ---------- Вспомогательное ---------- */
+const $ = id => document.getElementById(id);
+const tgLink = text => "https://t.me/" + TELEGRAM + (text ? "?text=" + encodeURIComponent(text) : "");
+function toast(msg) {
+  const t = $("toast"); t.textContent = msg; t.classList.add("on");
+  clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("on"), 2600);
+}
+function order(title) {
+  // Ссылка-клик вместо window.open: браузеры не блокируют её как всплывающее окно.
+  const a = document.createElement("a");
+  a.href = tgLink("Здравствуйте! Меня интересует: " + title);
+  a.target = "_blank"; a.rel = "noopener";
+  a.click();
+}
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+
+/* ---------- Контакты ---------- */
+const hello = tgLink("Здравствуйте! Я с вашего сайта.");
+$("lnkTg").href = hello; $("heroTg").href = hello; $("floatCta").href = hello;
+$("lnkIg").href = "https://www.instagram.com/" + INSTAGRAM;
+if (WHATSAPP) {
+  $("lnkWa").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Здравствуйте! Я с вашего сайта.");
+} else {
+  $("lnkWa").addEventListener("click", e => { e.preventDefault(); toast("WhatsApp скоро появится — пока пишите в Telegram."); });
+}
+
+/* ---------- Каталог и окно услуги ---------- */
+const dlg = $("dlg");
+let current = null;
+SERVICES.forEach(s => {
+  const b = el("button", "card" + (s.main ? " reveal" : " extra"));
+  b.type = "button";
+  b.innerHTML = '<div class="emoji"></div><h3></h3><p></p><span class="cprice grad"></span><span class="more">Подробнее →</span>';
+  b.querySelector(".emoji").textContent = s.icon; b.querySelector("h3").textContent = s.title;
+  b.querySelector("p").textContent = s.short; b.querySelector(".cprice").textContent = money(s.from);
+  b.addEventListener("click", () => openService(s));
+  $("grid").appendChild(b);
+});
+const extraCount = SERVICES.filter(s => !s.main).length;
+function syncMore() { $("moreBtn").textContent = $("grid").classList.contains("all") ? "Скрыть" : "Ещё услуги (" + extraCount + ")"; }
+$("moreBtn").addEventListener("click", () => { $("grid").classList.toggle("all"); syncMore(); });
+syncMore();
+function openService(s) {
+  current = s;
+  $("dlgIcon").textContent = s.icon; $("dlgTitle").textContent = s.title; $("dlgText").textContent = s.short;
+  $("dlgList").innerHTML = "";
+  s.list.forEach(x => $("dlgList").appendChild(el("li", "", x)));
+  $("dlgPrice").innerHTML = "";
+  $("dlgPrice").append("Стартовая цена ", el("b", "", money(s.from)), " · итог зависит от вашей идеи");
+  dlg.showModal();
+}
+$("dlgClose").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("dlgGo").addEventListener("click", () => { if (current) order(current.title); });
+
+/* ---------- Тест из 3 вопросов ---------- */
+const QUIZ = [
+  { q: "Чего вы хотите больше всего прямо сейчас?", o: [
+    ["Больше клиентов", { websites: 3, bots: 2, automation: 1 }],
+    ["Экономить своё время", { automation: 3, assistants: 2, bots: 1 }],
+    ["Выглядеть профессионально в интернете", { websites: 3, cards: 2, content: 1 }],
+    ["Создавать контент и видео", { content: 3, video: 2, learning: 1 }] ] },
+  { q: "Для кого это нужно?", o: [
+    ["Для моего бизнеса", { websites: 1, bots: 1 }],
+    ["Для меня лично", { cards: 2, assistants: 1 }],
+    ["Для моей команды", { assistants: 2, automation: 1, apps: 1 }],
+    ["Для события или подарка", { websites: 2, video: 1 }] ] },
+  { q: "С чего вам хочется начать?", o: [
+    ["С чего-то небольшого и недорогого", { cards: 2, content: 2, docs: 1, bots: 1 }],
+    ["Сразу с полноценного решения", { websites: 1, assistants: 1, apps: 2 }],
+    ["Пока не знаю — подскажите", {}] ] }
+];
+let step = 0, score = {}, picks = [];
+function renderQuiz() {
+  const box = $("quizBox");
+  if (step >= QUIZ.length) return renderResult();
+  const Q = QUIZ[step];
+  box.innerHTML = '<div class="bar"><i style="width:' + (step / QUIZ.length * 100) + '%"></i></div><h3></h3><div class="opts"></div>';
+  box.querySelector("h3").textContent = (step + 1) + " / " + QUIZ.length + " · " + Q.q;
+  Q.o.forEach(([label, pts]) => {
+    const b = el("button", "opt", label); b.type = "button";
+    b.addEventListener("click", () => {
+      for (const k in pts) score[k] = (score[k] || 0) + pts[k];
+      picks.push(label); step++; renderQuiz();
+    });
+    box.querySelector(".opts").appendChild(b);
+  });
+  requestAnimationFrame(() => { const i = box.querySelector(".bar i"); if (i) i.style.width = ((step + 1) / QUIZ.length * 100) + "%"; });
+}
+function renderResult() {
+  const ranked = SERVICES.map(s => [s, score[s.id] || 0]).sort((a, b) => b[1] - a[1]).slice(0, 2).map(x => x[0]);
+  const box = $("quizBox");
+  box.innerHTML = '<div class="bar"><i style="width:100%"></i></div><h3>Моя подсказка для вас 🎯</h3><div class="result"></div>';
+  const res = box.querySelector(".result");
+  ranked.forEach(s => {
+    const r = el("div", "rec");
+    r.innerHTML = '<div class="emoji"></div><div class="txt"><b></b><span></span><em></em></div>';
+    r.querySelector(".emoji").textContent = s.icon; r.querySelector("b").textContent = s.title;
+    r.querySelector("span").textContent = s.why; r.querySelector("em").textContent = money(s.from);
+    const b = el("button", "", "Хочу это"); b.type = "button";
+    b.addEventListener("click", () => order(s.title + " (результат теста: " + picks.join("; ") + ")"));
+    r.appendChild(b); res.appendChild(r);
+  });
+  const again = el("button", "linkbtn", "Пройти заново"); again.type = "button";
+  again.addEventListener("click", () => { step = 0; score = {}; picks = []; renderQuiz(); });
+  res.appendChild(again);
+}
+renderQuiz();
+
+/* ---------- Примеры работ, отзывы ---------- */
+if (WORKS.length) {
+  $("works").hidden = false;
+  WORKS.forEach(w => {
+    const c = el("div", "work reveal");
+    if (w.image) { const im = el("img"); im.src = w.image; im.alt = w.title; im.loading = "lazy"; c.appendChild(im); }
+    c.appendChild(el("h3", "", w.title)); c.appendChild(el("p", "", w.text));
+    if (w.link) { const a = el("a", "", "Посмотреть →"); a.href = w.link; a.target = "_blank"; a.rel = "noopener"; c.appendChild(a); }
+    $("worksList").appendChild(c);
+  });
+}
+if (REVIEWS.length) {
+  $("reviews").hidden = false;
+  REVIEWS.forEach(r => {
+    const c = el("div", "review reveal");
+    c.appendChild(el("p", "", "«" + r.text + "»")); c.appendChild(el("b", "", r.name));
+    $("reviewsList").appendChild(c);
+  });
+}
+
+/* ---------- Обо мне ---------- */
+if (ABOUT.paragraphs.length) {
+  $("about").hidden = false;
+  $("aboutEyebrow").textContent = ABOUT.eyebrow;
+  $("aboutTitle").textContent = ABOUT.title;
+  ABOUT.paragraphs.forEach(p => $("aboutText").appendChild(el("p", "", p)));
+  ABOUT.points.forEach(p => {
+    const d = el("div", "pt");
+    d.innerHTML = '<div class="ic"></div><h3></h3><p></p>';
+    d.querySelector(".ic").textContent = p.icon; d.querySelector("h3").textContent = p.title; d.querySelector("p").textContent = p.text;
+    $("aboutPts").appendChild(d);
+  });
+  $("aboutClosing").textContent = ABOUT.closing;
+  $("aboutCta").href = tgLink("Здравствуйте! Хочу поработать с вами.");
+} else $("navAbout").hidden = true;
+
+/* ---------- Фото: большое рядом с заголовком и маленькое в шапке ---------- */
+(function () {
+  const photo = new Image();
+  photo.onload = () => {
+    const css = 'url("' + PHOTO + '")';
+    $("pimg").style.backgroundImage = css;
+    $("portrait").hidden = false;
+    $("hero").classList.add("has-photo");
+    const small = el("div", "ph"); small.style.backgroundImage = css; $("hdrAv").appendChild(small);
+  };
+  photo.src = PHOTO;
+})();
+
+/* ---------- Вопросы и ответы ---------- */
+FAQ.forEach(([q, a]) => {
+  const d = el("details"); d.appendChild(el("summary", "", q)); d.appendChild(el("p", "", a));
+  $("faqList").appendChild(d);
+});
+
+/* ---------- Кнопка «Написать» на телефоне: после первого экрана, пока не видны контакты ---------- */
+(function () {
+  if (!("IntersectionObserver" in window)) { $("floatCta").classList.add("on"); return; }
+  const hide = { hero: true, contact: false };
+  const sync = () => $("floatCta").classList.toggle("on", !hide.hero && !hide.contact);
+  const io = new IntersectionObserver(es => es.forEach(e => { hide[e.target.id] = e.isIntersecting; sync(); }), { threshold: .15 });
+  io.observe($("hero")); io.observe($("contact"));
+})();
+
+/* ---------- Появление при прокрутке ---------- */
+const items = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+  items.forEach(n => io.observe(n));
+} else items.forEach(n => n.classList.add("in"));
+</script>
+</body>
+</html>
